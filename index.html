@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{title}}</title>
+    <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
@@ -16,61 +16,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@200&display=swap"
         rel="stylesheet">
-    <style type="text/css">
-        body,
-        * {
-            font-family: "Poppins", sans-serif;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Montserrat", sans-serif;
-            font-weight: bold;
-        }
-
-        .bg-white-50 {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .bg-primary {
-            background-color: #396eff !important;
-        }
-
-        .bg-light {
-            background-color: #eaf6fe !important;
-        }
-
-        .text-primary {
-            color: #396eff !important;
-        }
-    </style>
-
+    <link rel="stylesheet" href="css/custom.css"/>
 </head>
 
 <body class="bg-light">
-
-
     <div class="container-fluid">
         <div class="row">
-            <div class="col-1 col-xl-2 bg-primary  vh-100 d-flex justify-content-center">
+            <div class="col-1 col-xl-2 bg-primary  min-vh-100 ">
                 <ul class="nav pt-4">
                     <li class="nav-item">
-                        <a href="#" class="text-white text-decoration-none fs-3">
+                        <a href="#" class="text-white text-decoration-none fs-4">
                             <i class="bi bi-speedometer2"></i>
                             <span class="d-none d-xl-inline-block">Dashboard</span>
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="col bg-light vh-100">
+            <div class="col-11 col-xl-8 bg-light min-vh-100">
                 <div class="row pt-4 px-4">
                     <h1 class="text-primary">Dashboard</h1>
                 </div>
-                <div class="row pt-4 px-4 g-3">
+                <div class="row py-4 px-4 g-3">
                     <div class="col-xxl-5">
                         <div class="card border-0">
                             <div class="card-body">
@@ -110,8 +76,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-7">
-                        <div class="card border-0">
+                    <div class="col-xxl-7 d-flex">
+                        <div class="card border-0 w-100">
                             <div class="card-body">
                                 <h5 class="card-title">Relatório de vendas</h5>
                                 <h6 class="card-subtitle text-secondary fw-light">59.382 vendas</h6>
@@ -169,13 +135,18 @@
                     </div>
 
 
-                    <div class="col-xxl-5">
-                        <div class="card">
+                    <div class="col-xxl-5 d-flex">
+                        <div class="card border-0 w-100">
                             <div class="card-body">
                                 <h5 class="card-title">Divisão de vendas</h5>
                                 <h6 class="card-subtitle text-secondary fw-light">
                                     29.382 vendas
                                 </h6>
+                                <div class="row">
+                                    <div class="col d-flex justify-content-center">
+                                        <div id="piecharts"></div>
+                                    </div>
+                                </div>
                                 <div class="row text-center fw-bold fs-5">
                                     <div class="col"><span class="text-warning d-block">52%</span>Presencial</div>
                                     <div class="col"><span class="text-success d-block"> 48%</span>Online</div>
@@ -184,31 +155,37 @@
                         </div>
                     </div>
                     <div class="col-xxl-7">
-                        <div class="card">
+                        <div class="card border-0">
                             <div class="card-body">
                                 <h5 class="card-title">Relatório de comissão</h5>
                                 <h6 class="card-subtitle text-secondary fw-light">
                                     29.382 vendas
                                 </h6>
 
-                                <div class="row fw-bold">
-                                    <div class="col"><span
+                                <div class="row fw-bold position-legend">
+                                    <div class="offset-md-4 col col-md-3"><span
                                             class="d-block text-secondary fw-normal">Vendas</span>R$129.001,00</div>
-                                    <div class="col"><span class="d-block text-secondary fw-normal">Comisão</span> R$
+                                    <div class="col col-md-3"><span class="d-block text-secondary fw-normal">Comisão</span> R$
                                         12.900,10</div>
-                                    <div class="col"><span class="d-block text-secondary fw-normal">Bônus</span>-</div>
+                                    <div class="col col-md-2"><span class="d-block text-secondary fw-normal">Bônus</span>-</div>
+                                    
+                                    <div class="row mt-4">
+                                        <div class="col">
+                                            <div id="barcharts"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="d-none d-xl-block col-2 bg-primary text-white vh-100 pt-4">
+            <div class="d-none d-xl-block col-xl-2 bg-primary text-white min-vh-100 pt-4">
                 <h1 class="lead text-center">Notificações</h1>
 
-                <div class="mt-4 mx-2 bg-white-50 p-2 rounded">
-                    <h5>Maria diz: </h5>
-                    <p class="mb-0">Preciso do relátorio de vendas hoje a tarde</p>
+                <div class="mt-4 mx-2 white-50  p-2 rounded">
+                        <h5>Maria diz: </h5>
+                        <p class="mb-0">Preciso do relátorio de vendas hoje a tarde</p>
                 </div>
                 <div class="mt-4 mx-2 bg-white-50 p-2 rounded">
                     <h5>João diz: </h5>
@@ -232,6 +209,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="js/charts.js"></script>
 </body>
 
 </html>
