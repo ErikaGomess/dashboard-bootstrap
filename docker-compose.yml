@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  dashboard-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dashboard-bootstrap
+    ports:
+      - "8080:80"
+    restart: unless-stopped

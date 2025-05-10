@@ -1,0 +1,27 @@
+# Ignorar arquivos e pastas desnecessárias na imagem Docker
+
+# Node modules (se estiver usando Node.js)
+node_modules
+
+# Logs
+*.log
+npm-debug.log*
+
+# Git
+.git
+.gitignore
+
+# Sistema operacional / IDEs
+.DS_Store
+*.swp
+*.swo
+*.bak
+*.tmp
+.vscode/
+.idea/
+
+# Arquivos temporários ou de build
+dist/
+build/
+.env
+*.env
